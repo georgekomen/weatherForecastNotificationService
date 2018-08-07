@@ -5,7 +5,7 @@ router.use(expressValidator())
 
 /* GET home page. */
 router.get('/location', function(req, res, next) {
-  res.send('ascfas');
+  res.send('locations');
 });
 
 module.exports = router;

@@ -7,7 +7,8 @@ var mongoose = require('mongoose');
 router.post('/', function(req, res, next) {
     const user1 = new User({
          _id: new mongoose.Types.ObjectId(),
-         name: req.body.name
+         name: req.body.name,
+         location: req.body.location
      });
     user1.save().then(res1 => {
         console.log(res);
