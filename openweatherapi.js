@@ -13,10 +13,7 @@ exports.forecast = function() {
         path   : '/data/2.5/forecast',
         method : 'GET',
         headers: {
-            'Content-Type' : 'application/json',
-            'access-control-allow-credentials': true,
-            'access-control-allow-origin': '*',
-            'access-control-allow-methods': 'GET, POST'
+            'Content-Type' : 'application/json'
         },
         APIID: 'e6eb729dd2f39ad20344a39eda1d5d78'
     };
