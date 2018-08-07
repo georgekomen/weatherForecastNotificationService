@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var africastalking = require('./africastalking');
-var weatherapi = require('./openweatherapi');
+var weatherapi = require('./weatherbit');
 
 mongoose.connect('mongodb+srv://root:root@cluster0-nhac8.gcp.mongodb.net/test?retryWrites=true',
 { useNewUrlParser: true } );
