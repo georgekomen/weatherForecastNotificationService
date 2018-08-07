@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+var sms = require('./africastalking');
 
 mongoose.connect('mongodb+srv://root:root@cluster0-nhac8.gcp.mongodb.net/test?retryWrites=true',
 { useNewUrlParser: true } );
@@ -43,5 +44,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+sms.sendMessage('254713014492', 'hey');
 module.exports = app;
