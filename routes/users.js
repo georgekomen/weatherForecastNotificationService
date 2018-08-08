@@ -10,7 +10,9 @@ router.post('/', function(req, res, next) {
     const user1 = new User({
          _id: new mongoose.Types.ObjectId(),
          name: req.body.name,
-         location: req.body.location
+         location: req.body.location,
+         country:req.body.country,
+         phonenumber:req.body.country,
      });
     user1.save().then(res1 => {
         console.log(res);
@@ -28,7 +30,9 @@ router.get('/', function(req, res, next) {
 /* GET all users */
 router.get('/all', function(req, res, next) {
    User.find().exec().then(res1 => {
-       console.log(res1);
+       let users = [];
+       users = res1;
+       console.log(users);
        res.status(200).json(res1);
    });
 });
