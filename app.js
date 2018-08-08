@@ -4,8 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var africastalking = require('./Service/africastalking');
-var weatherapi = require('./Service/weatherbit');
 
 mongoose.connect('mongodb+srv://root:root@cluster0-nhac8.gcp.mongodb.net/test?retryWrites=true',
 { useNewUrlParser: true } );
@@ -43,5 +41,4 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-weatherapi.forecast();
 module.exports = app;

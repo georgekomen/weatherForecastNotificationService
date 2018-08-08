@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var User = require('../Domain/User');
 var mongoose = require('mongoose');
+var weatherapi = require('../Service/weatherbit');
+var africastalking = require('../Service/africastalking');
 
 /* post user. */
 router.post('/', function(req, res, next) {
