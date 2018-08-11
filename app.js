@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://root:root@cluster0-nhac8.gcp.mongodb.net/test?retryWrites=true',
 { useNewUrlParser: true } );
-
+var scheduledjobs = require('./Service/scheduledjobs');
 var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
 
@@ -41,4 +41,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+scheduledjobs.sendforecast();
 module.exports = app;

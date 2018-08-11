@@ -2,9 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../Domain/User');
 var mongoose = require('mongoose');
-var weatherapi = require('../Service/weatherbit');
-var africastalking = require('../Service/africastalking');
-
+var sendforecasts = require('../ServiceImpl/sendforecasts');
 /* post user. */
 router.post('/', function(req, res, next) {
     const user1 = new User({
@@ -29,12 +27,7 @@ router.get('/', function(req, res, next) {
 
 /* GET all users */
 router.get('/all', function(req, res, next) {
-   User.find().exec().then(res1 => {
-       let users = [];
-       users = res1;
-       console.log(users);
-       res.status(200).json(res1);
-   });
+   return sendforecasts.sendforecasts(req, res, next);
 });
 
 module.exports = router;
