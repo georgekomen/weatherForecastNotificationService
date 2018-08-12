@@ -6,12 +6,15 @@ exports.sendforecasts = function(req, res, next) {
     User.find().exec().then(res1 => {
         res1.forEach(res2 => {
             if (res2.country != undefined && res2.country != null && 
-                res2.location != undefined && res2.location != null) {
+                res2.location != undefined && res2.location != null &&
+                !isNaN(res2.phonenumber)) {
                     weatherapi.forecast(res2.location, res2.country).then(weatherforecast => {
-                      console.log("Haya basi: ", weatherforecast);
+                      africastalking.sendMessage(res2.phonenumber, "testing");
                     });
                 }
         });
-       res.status(200).json(res1);
+        if (res) {
+           res.status(200).json(res1);
+        }
     });
 }
