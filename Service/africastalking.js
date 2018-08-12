@@ -11,7 +11,7 @@ exports.sendMessage = function(to, message) {
         'username' : username,
         'to'       : to,
         'message'  : message,
-        'from'     : 'SUNAMISOLAR'
+        // 'from'     : 'SUNAMISOLAR'
     });
     
     var post_options = {
