@@ -1,6 +1,8 @@
 const request = require("request")
 exports.forecast = function(city, country) {
-     request.get({url: 'http://api.weatherbit.io/v2.0/forecast/daily', 
+    return new Promise(
+        function (resolve, reject) {
+            request.get({url: 'http://api.weatherbit.io/v2.0/forecast/daily', 
         qs: {
             'city'      : city,
             'country'   : country,
@@ -10,6 +12,7 @@ exports.forecast = function(city, country) {
     },
     function(err, response, body) {
         // console.log(err, body);
-        return body;
-    });
+        resolve(body);
+    });  
+ });
 }
